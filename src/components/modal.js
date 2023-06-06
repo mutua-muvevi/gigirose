@@ -68,7 +68,7 @@ const ModalComponent = ({header, open, close, width, children, type}) => {
 								<FaExclamationTriangle style={styledExclamationIcon}/>
 							) : null
 						}
-						<Typography id={`${header} + modal`} variant="h4" color={type === "delete" ? "error" : "primary" }>
+						<Typography id={`${header} + modal`} variant="h4" color={type === "delete" ? "error" : "primary" } style={{fontFamily: "'Merienda', cursive",}}>
 							{ header ? sentenceCase(header) : "" }
 						</Typography>
 					</Stack>

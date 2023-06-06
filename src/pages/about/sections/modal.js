@@ -10,11 +10,11 @@ const ModalDetails = ({ data }) => {
 	return (
 		<StyledModal>
 			<Stack direction="column" spacing={3}>
-				<ReusableParagraphs paragraph={data.paragraph}/>
+				<ReusableParagraphs paragraph={data.paragraph} color="#ffffff"/>
 				{
 					data.list ? (
 						<Stack direction="column" >
-							<Typography variant="h6">
+							<Typography variant="h6" style={{fontFamily: "'Merienda', cursive",}} color="primary">
 								{data.list.title}
 							</Typography>
 							{
