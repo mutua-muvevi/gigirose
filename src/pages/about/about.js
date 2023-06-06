@@ -7,8 +7,7 @@ import Mission from "./sections/mission";
 import Company from "./sections/company";
 
 const subtitle = [
-	`Heldial Painting Company was formed to meet the growing demand and ongoing need for professional-grade painting and refinishing services in Kenya and East Africa.`,
-	`The focus of Heldial Painting Company is to provide high-quality surface preparation, finished painting, and refinishing services to residential, commercial, municipal building, and facilities clients primarily in the most-populated areas`,
+	`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula euismod mauris, ut ultrices nisi auctor at. Donec pellentesque orci eget massa interdum, sed tempor nisi aliquam. Proin non ipsum sem.`
 ]
 
 const StyledWrapper = styled(Box)(({ theme }) => ({

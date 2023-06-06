@@ -24,7 +24,7 @@ const ReusableBanner = ({ height, title, subtitle, image }) => {
 					<Typography variant="h2">{title}</Typography>
 					{
 						subtitle ? subtitle.map((el, i) => (
-							<Typography variant="subtitle1" key={i}>
+							<Typography variant="subtitle1" key={i} >
 								{el}
 							</Typography>
 						)) : ""

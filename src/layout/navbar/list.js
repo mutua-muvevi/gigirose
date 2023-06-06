@@ -39,7 +39,8 @@ const SwipeableDrawerList = ({ mobileNav, setMobileNav }) => {
 		>
 			<StyledLogoListItem component="nav" aria-label="Henriot mobile navigation">
 				<LogoParent>
-					<LogoItem src={logo} alt="Skydive Rhino Kenya Logo"/>
+					{/* <LogoItem src={logo} alt="Skydive Rhino Kenya Logo"/> */}
+					LOGO
 				</LogoParent>
 
 				<Divider color="grey"/>
@@ -65,6 +66,18 @@ const SwipeableDrawerList = ({ mobileNav, setMobileNav }) => {
 						}}
 					>
 						<ListItemText primary="About" sx={{ opacity: mobileNav ? 1 : 0, marginLeft: "15px" }} />
+					</ListItemButton>
+				</NavLink>
+
+				<NavLink to="/landing/services" style={navlinkStyle}>
+					<ListItemButton
+						sx={{
+							minHeight: 48,
+							justifyContent: mobileNav ? 'initial' : 'center',
+							px: 2.5,
+						}}
+					>
+						<ListItemText primary="Services" sx={{ opacity: mobileNav ? 1 : 0, marginLeft: "15px" }} />
 					</ListItemButton>
 				</NavLink>
 				

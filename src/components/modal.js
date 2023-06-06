@@ -38,12 +38,13 @@ const ModalComponent = ({header, open, close, width, children, type}) => {
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
-		bgcolor:  type === "delete" ? "error.lighter" : "background.paper",
+		bgcolor:  type === "delete" ? "error.lighter" : "secondary.main",
 		boxShadow: 24,
 		p: 0,
 		width: width,
 		overflow: "hidden",
-		borderRadius: 2
+		borderRadius: 2,
+		color: "#fff"
 	};
 
 	const styledExclamationIcon = {
@@ -56,7 +57,7 @@ const ModalComponent = ({header, open, close, width, children, type}) => {
 	return (
 		<Modal
 			open={open}
-			//onClose={close}
+			onClose={close}
 			aria-labelledby={`${header} + modal`}
 		>
 			<Box sx={style}>

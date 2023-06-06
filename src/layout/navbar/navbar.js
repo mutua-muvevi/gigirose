@@ -120,7 +120,8 @@ const Navbar = () => {
 						<TopAppBar >
 							<Container maxWidth="xl">
 								<Stack direction="row" justifyContent="space-between" alignItems="center">
-									<img src={logo} alt="Henriot mobile logo" style={styledMobileLogo}/>
+									{/* <img src={logo} alt="Henriot mobile logo" style={styledMobileLogo}/> */}
+									LOGO
 									<IconButton
 										size="large"
 										aria-label="account of current user"

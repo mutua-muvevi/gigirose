@@ -34,8 +34,8 @@ const StyledCardBox = styled(Box)(({ theme }) => ({
 
 const cardArray = [
 	company.mission,
-	company.objectives,
-	company.competition,
+	company.vision,
+	company.partners,
 ];
 
 const text = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula euismod mauris, ut ultrices nisi auctor at. Donec pellentesque orci eget massa interdum, sed tempor nisi aliquam. Proin non ipsum sem. Nunc tincidunt tincidunt libero. Donec posuere tempor mattis. Cras blandit turpis eu risus commodo bibendum."]
