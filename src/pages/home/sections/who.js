@@ -47,6 +47,7 @@ const Who = () => {
 							src={imageOne}
 							alt="Who we are"
 							style={styledImage}
+							loading="lazy"
 						/>
 					</StyledGridItem>
 

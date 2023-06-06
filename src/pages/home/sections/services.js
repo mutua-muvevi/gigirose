@@ -29,7 +29,7 @@ const HomeServices = () => {
 								serviceInfo.map((el, i) => (
 									<Grid item xs={12} sm={12} md={6} lg={3} xl={3} Key={i}>
 										<Stack direction="column" spacing={3}>
-											<img src={el.image} alt={el.title} style={styledImage}/>
+											<img src={el.image} alt={el.title} style={styledImage} loading="lazy"/>
 												
 											<Typography variant="h5" colot="text.primary">
 												{el.title}

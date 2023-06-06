@@ -42,6 +42,7 @@ const ServiceCards = () => {
 												src={el.thumbnail}
 												alt={el.title}
 												height={250}
+												loading="lazy"
 											/>
 											<CardContent>
 												<Stack direction="column" spacing={1.5}>
