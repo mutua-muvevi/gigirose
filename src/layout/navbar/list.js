@@ -6,6 +6,7 @@ import { styled } from "@mui/system";
 import { drawerMenuItems } from "./info";
 
 import logo from "../../assets/images/logo.webp"
+import { useTheme } from "@emotion/react";
 
 const StyledLogoListItem = styled(List)(({theme}) => ({
 
@@ -32,12 +33,21 @@ const navlinkStyle = {
 };
 
 const SwipeableDrawerList = ({ mobileNav, setMobileNav }) => {
+
+	const theme = useTheme()
+
+	const styledWrapper = {
+		backgroundColor: theme.palette.secondary.main,
+		color: theme.palette.primary.main,
+		height: "100%"
+	}
   
 	return (
 		<Box
 			role="presentation"
+			sx={styledWrapper}
 		>
-			<StyledLogoListItem component="nav" aria-label="Henriot mobile navigation">
+			<StyledLogoListItem component="nav" aria-label="Gigi rose mobile navigation">
 				<LogoParent>
 					{/* <LogoItem src={logo} alt="Skydive Rhino Kenya Logo"/> */}
 					LOGO

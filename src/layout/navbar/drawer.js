@@ -3,16 +3,20 @@ import React from 'react';
 import { SwipeableDrawer } from "@mui/material"
 import { styled } from "@mui/system";
 
+import { useTheme } from '@emotion/react';
 import SwipeableDrawerList from "./list";
 
 const StyledSwipeAbleDrawer = styled(SwipeableDrawer)(({theme}) => ({
 }))
 
-const swipeableDrawerSX = {
-
-}
-
 const SwipeableSideDrawer = ({mobileNav, setMobileNav}) => {
+	
+	const theme = useTheme()
+	
+	const swipeableDrawerSX = {
+		
+	}
+
 	return (
 		<StyledSwipeAbleDrawer
 			anchor="right"
