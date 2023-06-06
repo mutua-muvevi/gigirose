@@ -14,7 +14,8 @@ const ReusableParagraphs = ({ paragraph, color }) => {
 							sx={{
 								color: color
 									? color
-									: theme.palette.text.seondary,
+									: theme.palette.text.secondary,
+
 							}}
 							key={i}
 						>

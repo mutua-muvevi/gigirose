@@ -23,7 +23,7 @@ const StyledContainer = styled(Container)({
 })
 
 const StyledLogoSection = styled(Box)({
-
+	fontFamily: "'Merienda', cursive",
 })
 
 const StyledMenuStack = styled(Stack)({
@@ -84,7 +84,9 @@ const Navbar = () => {
 								<StyledMenuStack direction="row" justifyContent="space-between" alignItems="center" spacing={5}>
 									<StyledLogoSection>
 										{/* <img src={logo} alt="Skydive logo" style={styledLogo}/> */}
-									Logo
+										<Typography variant="h5" color="primary" style={{fontFamily: "'Merienda', cursive",}}>
+											<span style={{color: "#fff"}}> GIGI</span>Rose
+										</Typography>
 									</StyledLogoSection>
 
 									<Stack direction="row" spacing={3}>
@@ -92,7 +94,7 @@ const Navbar = () => {
 											menuItems.map((el, i) => (
 												<StyledNavButton sx={{textAlign: "left"}} variant="text" key={i}>
 													<NavLink to={el.path} style={styledLink}>
-														<Typography variant="subtitle1" style={{textTransform: "uppercase", color: "#fff"}}>
+														<Typography variant="subtitle1" style={{textTransform: "uppercase", color: "#fff", fontFamily: "'Merienda', cursive",}}>
 															{el.label}
 														</Typography>
 													</NavLink>
@@ -121,7 +123,9 @@ const Navbar = () => {
 							<Container maxWidth="xl">
 								<Stack direction="row" justifyContent="space-between" alignItems="center">
 									{/* <img src={logo} alt="Henriot mobile logo" style={styledMobileLogo}/> */}
-									LOGO
+										<Typography variant="h5" color="primary" style={{fontFamily: "'Merienda', cursive",}}>
+											<span style={{color: "#fff"}}> GIGI</span>Rose
+										</Typography>
 									<IconButton
 										size="large"
 										aria-label="account of current user"

@@ -53,7 +53,7 @@ const Footer = () => {
 
 				<StyledGridItems item xs={12} sm={12} md={12} lg={5} xl={5} >
 					<Stack direction="column" spacing={3} >
-						<Typography variant="h2" sx={{ml:3}}>
+						<Typography variant="h2" sx={{ml:3, fontFamily: "'Merienda', cursive"}}>
 							Contact{" "}
 							<span style={{ color: theme.palette.primary.main }}>
 								Us

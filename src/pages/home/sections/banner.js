@@ -32,10 +32,16 @@ const Banner = () => {
         <StyledWrapper>
             <BannerItem maxWidth="xl">
                 <Stack direction="column" spacing={3}>
-                    <Typography variant="h2">Lorem Ipsum Text One</Typography>
+                    <Typography
+                        variant="h2"
+                        style={{ fontFamily: "'Merienda', cursive" }}
+                    >
+                        GIGIRose Beauty Products
+                    </Typography>
                     <Typography
                         variant="subtitle1"
                         sx={{
+							fontFamily: "'Merienda', cursive",
                             display: {
                                 xs: "none",
                                 sm: "none",
