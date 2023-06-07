@@ -25,7 +25,7 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const StyledCardBox = styled(Box)(({ theme }) => ({
-	border: "2px solid orange",
+	border: `2px solid ${theme.palette.primary.main}`,
 	borderRadius: "10px",
 	padding: "10px",
 	cursor: "pointer",

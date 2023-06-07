@@ -15,7 +15,7 @@ const ServiceDetails = ({ data }) => {
 					data.content.map((el, i) => (
 						<Stack direction="column" spacing={2}>
 							<TitleSubtitle title={el.title}/>
-							<ReusableParagraphs paragraph={el.paragraph}/>
+							<ReusableParagraphs paragraph={el.paragraph} color="#fff"/>
 						</Stack>
 					))
 				}
