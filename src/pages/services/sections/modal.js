@@ -1,4 +1,4 @@
-import { Box, List, ListItem, Stack, Typography } from "@mui/material";
+import { Box, Stack,  } from "@mui/material";
 import { styled } from "@mui/system"
 import ReusableParagraphs from "../../../layout/paragraphs";
 import TitleSubtitle from "../../../layout/titlesubtitle";
