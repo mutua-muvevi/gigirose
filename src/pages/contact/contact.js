@@ -17,7 +17,7 @@ const Contact = () => {
 				height="50vh"
 				image={Image}
 				title="Contact us"
-				subtile="Contact us for more information"
+				subtitle={["Reach Out to Us – Let's Connect and Transform Together"]}
 				position="center"
 			/>
 			<ContactDetailsForm/>

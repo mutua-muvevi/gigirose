@@ -1,6 +1,8 @@
 import { Box, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
+const subtitle = "We would love to hear from you! Our contact us section is designed to make it easy for you to reach out and start your beauty journey with us. Whether you have questions about our services, want to book an appointment, or simply want to learn more about how we can help you achieve your beauty goals, our friendly team is here to provide you with personalized assistance and guidance. Simply fill out the contact form or give us a call, and we'll be delighted to connect with you and help you embark on your transformational experience."
+
 const StyledContactDetails = styled(Stack)(({ theme }) => ({
 
 }))
@@ -42,11 +44,9 @@ const contactItems = [
 const ContactDetails = () => {
 	return (
 		<StyledContactDetails direction="column" spacing={3}>
-			<Typography variant="h4" color="primary">
-				Get in touch with us
-			</Typography>
+
 			<Typography variant="body2" color="text.primary">
-			We're here to help you make your skydiving dreams a reality, and the first step is getting in touch with us. Whether you have questions about our services, want to book a jump, or just need some advice, we're always happy to hear from you. Our experienced team is dedicated to providing exceptional customer service and support, and we will do everything in our power to make your skydiving experience as smooth and enjoyable as possible. So don't hesitate – get in touch with us today and let us help you take the leap into the thrilling world of skydiving!
+				{subtitle}
 			</Typography>
 			{
 				contactItems.map((item, i) => (
@@ -58,7 +58,7 @@ const ContactDetails = () => {
 						</StyledDetailTitles>
 						{
 							item.items.map((text, i) => (
-								<Typography variant="body2" color="text.primary" key={i}>
+								<Typography variant="body1" color="text.primary" key={i}>
 									{text}
 								</Typography>
 							))
