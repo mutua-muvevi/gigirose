@@ -6,7 +6,7 @@ import ReusableBanner from "../../layout/banner";
 import ServiceCards from "./sections/cards";
 
 const subtitle = [
-	`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula euismod mauris, ut ultrices nisi auctor at. Donec pellentesque orci eget massa interdum, sed tempor nisi aliquam. Proin non ipsum sem.`
+	`Experience beauty transformed with our cutting-edge services and skincare solutions.`
 ]
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
