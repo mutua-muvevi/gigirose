@@ -11,6 +11,8 @@ import { NavLink } from 'react-router-dom';
 import SwipeableSideDrawer from './drawer';
 
 import logo from "../../assets/images/logo.webp"
+import ModalComponent from '../../components/modal';
+import BookForm from './form';
 
 const TopAppBar = styled(AppBar)({
 	zIndex: 3,
@@ -49,15 +51,7 @@ const StyledButtonStack = styled(Stack)({
 
 const StyledButton = styled(Button)({
 	minWidth: "200px"
-})
-
-const styledLogo = {
-	height: "60px"
-}
-
-const styledMobileLogo = {
-	height: "40px"
-}
+});
 
 const iconButtonSX = {
 
@@ -65,11 +59,13 @@ const iconButtonSX = {
 
 const Navbar = () => {
 
-	const [mobileNav, setMobileNav] = useState(false)
+	const [mobileNav, setMobileNav] = useState(false);
+	const [ open, setOpen ] = useState(false)
 
 	const handleMobileNav = () => {
 		setMobileNav(!mobileNav)
 	}
+
 
 	const innerWidth = window.innerWidth
 
@@ -106,7 +102,7 @@ const Navbar = () => {
 
 
 									<StyledButtonStack direction="row" spacing={3}>
-										<StyledButton variant="contained" color="secondary">
+										<StyledButton variant="contained" color="secondary" onClick={() => setOpen(true)}>
 											<Typography variant="subtitle1" >
 												Book Online
 											</Typography>
@@ -146,6 +142,15 @@ const Navbar = () => {
 			}
 
 			<SwipeableSideDrawer mobileNav={mobileNav} setMobileNav={setMobileNav} />
+			<ModalComponent
+				header="Book Service"
+				open={open}
+				close={() => setOpen(false)}
+				width="75vw"
+				children={
+					<BookForm/>
+				}
+			/>
 		</>
 	);
 };
