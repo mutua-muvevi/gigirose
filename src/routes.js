@@ -8,6 +8,10 @@ import Contact from "./pages/contact/contact";
 import Home from "./pages/home/home";
 import Services from "./pages/services/services";
 import NotFound from "./pages/error/404";
+import Register from "./pages/auth/register/register";
+import Login from "./pages/auth/login/login";
+import ForgotPasswordForm from "./pages/auth/forgotpassword/form";
+import ResetPassword from "./pages/auth/resetpassword/resetpassword";
 
 //router function
 const Router = () => {
@@ -33,6 +37,22 @@ const Router = () => {
 					element: <Contact/>
 				},
 			]
+		},
+		{
+			path: "/register",
+			element: <Register />,
+		},
+		{
+			path: "/login",
+			element: <Login />,
+		},
+		{
+			path: "/forgotpassword",
+			element: <ForgotPasswordForm/>,
+		},
+		{
+			path: "/resetpassword",
+			element: <ResetPassword />,
 		},
 		{
 			path: "/",

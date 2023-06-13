@@ -34,6 +34,7 @@ const TextfieldWrapper = ({
 						? borderColor
 						: theme.palette.primary.main,
 				},
+				borderColor: borderColor ? borderColor : theme.palette.primary.main,
 			},
 		},
 	};
