@@ -25,7 +25,7 @@ const Register = () => {
 				direction="column"
 				justifyContent="center"
 				alignItems="flex-start"
-				spacing={3}
+				spacing={5}
 			>
 				<Typography variant="h2" color="text.primary">
 					Register 

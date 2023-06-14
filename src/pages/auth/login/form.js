@@ -38,7 +38,8 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 	const navigate = useNavigate()
 
 	const submitHandler = ( values ) => {
-		loginUser(values)
+		// loginUser(values)
+		console.log(values)
 		
 		if(token === null){
 			setShowError(true)
@@ -96,6 +97,7 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 					<Grid container spacing={3}>
 						<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 							<TextFieldWrapper
+								variant="standard"
 								type="text"
 								name="email"
 								label="Email"
@@ -105,6 +107,7 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 
 						<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 							<TextFieldWrapper
+								variant="standard"
 								type={showPassword ? 'text' : 'password'}
 								name="password"
 								label="Password"
@@ -138,7 +141,7 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 								Forgot your password ?
 							</Typography>
 
-							<Link to="/auth/forgotpassword">
+							<Link to="/forgotpassword">
 								<Typography variant="body2" color="primary">
 									Reset password here
 								</Typography>

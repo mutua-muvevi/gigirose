@@ -6,8 +6,11 @@ import { styled } from "@mui/system";
 import LoginForm from "./form";
 
 const AccountActivationWrapper = styled(Stack)(({ theme }) => ({
-	width: "80vw",
-	height: "80vh",
+	margin: 0,
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	minHeight: "100vh"
 }))
 
 const Login = () => {
@@ -15,15 +18,15 @@ const Login = () => {
 		<AccountActivationWrapper
 			direction="row"
 			justifyContent="center"
-			alignItems="center"
+			alignItems="flex-start"
 		>
 			<Stack
 				direction="column"
 				justifyContent="center"
 				alignItems="center"
-				spacing={3}
+				spacing={5}
 			>
-				<Typography variant="h3" color="text.primary">
+				<Typography variant="h2" color="text.primary">
 					Login
 				</Typography>
 				<LoginForm/>
