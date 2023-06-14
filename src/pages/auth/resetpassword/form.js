@@ -24,7 +24,7 @@ const FORM_VALIDATION = Yup.object().shape({
 
 
 const StyledResetPasswordForm = styled(Box)(({theme}) => ({
-
+	minWidth: "50vw",
 }))
 
 const ResetPasswordForm = () => {
@@ -56,6 +56,7 @@ const ResetPasswordForm = () => {
 										name={el.name}
 										label={el.label}
 										size="small"
+										variant="standard"
 										InputProps={{
 											endAdornment : (
 												<InputAdornment position="end">

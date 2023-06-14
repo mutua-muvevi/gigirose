@@ -6,8 +6,11 @@ import { styled } from "@mui/system";
 import ResetPasswordForm from "./form";
 
 const AccountActivationWrapper = styled(Stack)(({ theme }) => ({
-	width: "80vw",
-	height: "80vh",
+	margin: 0,
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	minHeight: "100vh",
 }))
 
 const ResetPassword = () => {
@@ -20,8 +23,9 @@ const ResetPassword = () => {
 			<Stack
 				direction="column"
 				justifyContent="center"
-				alignItems="center"
+				alignItems="flex-start"
 				spacing={3}
+				style={{minWidth: "50vw",}}
 			>
 				<Typography variant="h3" color="text.primary">
 					Reset your password
