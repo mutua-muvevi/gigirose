@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/system';
 import { AppBar,Toolbar, IconButton, Typography, Button, Menu, MenuItem, Divider, Container, Stack, Box } from '@mui/material';
 
 import { FaBars } from "react-icons/fa";
@@ -14,10 +14,10 @@ import logo from "../../assets/images/logo.webp"
 import ModalComponent from '../../components/modal';
 import BookForm from './form';
 
-const TopAppBar = styled(AppBar)({
+const TopAppBar = styled(AppBar)(({theme}) => ({
 	zIndex: 3,
-	backgroundColor: 'black'
-});
+	backgroundColor: theme.palette.primary.main
+}));
 
 const StyledContainer = styled(Container)({
 	width: "100%",
@@ -119,7 +119,7 @@ const Navbar = () => {
 							<Container maxWidth="xl">
 								<Stack direction="row" justifyContent="space-between" alignItems="center">
 									{/* <img src={logo} alt="Henriot mobile logo" style={styledMobileLogo}/> */}
-										<Typography variant="h5" color="primary" style={{fontFamily: "'Merienda', cursive",}}>
+										<Typography variant="h5" color="secondary" style={{fontFamily: "'Merienda', cursive"}}>
 											<span style={{color: "#fff"}}> GIGI</span>Rose
 										</Typography>
 									<IconButton

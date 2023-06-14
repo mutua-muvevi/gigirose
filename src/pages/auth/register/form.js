@@ -10,6 +10,8 @@ import * as Yup from "yup";
 
 import { registerItems } from "./info";
 import TextfieldWrapper from "../../../components/formui/textfield/textfield";
+import { registerUser } from "../../../redux/auth/action";
+import { connect } from "react-redux";
 
 const INITIAL_FORM_STATE = {
 	email: "",
@@ -23,32 +25,32 @@ const FORM_VALIDATION = Yup.object().shape({
 	email: Yup.string()
 		.email("Please add a valid email")
 		.min(5, "Too short email")
-		.max(80, "Too long email")
+		.max(100, "Too long email")
 		.required("Please add an email"),
 	fullname: Yup.string()
 		.min(5, "Too short fullname")
-		.max(80, "Too long fullname")
+		.max(100, "Too long fullname")
 		.required("Please add an fullname"),
 	telephone: Yup.string()
 		.min(5, "Too short telephone")
-		.max(80, "Too long telephone"),
+		.max(100, "Too long telephone"),
 	location: Yup.string()
 		.min(5, "Too short location")
-		.max(80, "Too long location")
+		.max(100, "Too long location")
 		.required("Please add an location"),
 	password: Yup.string()
 		.min(5, "Too short password")
-		.max(80, "Too long password")
+		.max(100, "Too long password")
 		.required("Please add an password"),
 });
 
 const StyledRegisterForm = styled(Box)(({ theme }) => ({}));
 
-const RegisterForm = () => {
+const RegisterForm = ({register}) => {
 	const [showSuccess, setShowSuccess] = useState(true);
 
 	const submitHandler = (values) => {
-		console.log("VALUES", values);
+		register(values)
 	};
 
 	return (
@@ -95,4 +97,12 @@ const RegisterForm = () => {
 	);
 };
 
-export default RegisterForm;
+const mapStatetoProps = () => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	register : (values) => dispatch(registerUser(values))
+})
+
+export default connect(mapStatetoProps, mapDispatchToProps)(RegisterForm);

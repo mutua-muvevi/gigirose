@@ -7,11 +7,16 @@ import { testimonials } from "../info";
 import { FaQuoteLeft } from "react-icons/fa"
 import { useTheme } from "@emotion/react";
 
+import Image from "../../../assets/images/antiwrinkle.jpg"
+
 const StyledWrapper = styled(Box)(({ theme }) => ({
 	paddingTop: "100px",
 	paddingBottom: "100px",
-	backgroundColor: theme.palette.secondary.main,
-	color: "#fff"
+	color: "#fff",
+	backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.75)), url(${Image}) !important`,
+	backgroundAttachment: "fixed",
+	backgroundSize: "cover",
+	backgroundPosition: "center"
 }))
 
 const StyledAvatar = styled(Avatar)(({ theme }) => ({
@@ -36,7 +41,7 @@ const Testimonials = () => {
 					<TitleSubtitle
 						title="Our Testimonials"
 						subtitle="What our happy customers say"
-						color={theme.palette.primary.main}
+						color="#ffffff"
 					/>
 					
 					<div>

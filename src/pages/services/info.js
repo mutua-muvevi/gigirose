@@ -1,11 +1,11 @@
-import Image1 from "../../assets/images/design.jpg";
+import Image1 from "../../assets/images/Dermal Filler.jpg";
 import Image2 from "../../assets/images/design1.jpg";
-import Image3 from "../../assets/images/design2.jpg";
-import Image4 from "../../assets/images/design3.jpg";
-import Image5 from "../../assets/images/design4.jpg";
+import Image3 from "../../assets/images/thread.jpg";
+import Image4 from "../../assets/images/vitamin.jpg";
+import Image5 from "../../assets/images/antiwrinkle.jpg";
 import Image6 from "../../assets/images/design5.jpg";
 import Image7 from "../../assets/images/testimonial.jpg";
-import Image8 from "../../assets/images/testimonial1.jpg";
+import Image8 from "../../assets/images/stretchmarks.jpg"
 
 export const services = [
 	{
@@ -105,11 +105,11 @@ export const services = [
 		]
 	},
 	{
-		title: "Microschelotherapy",
+		title: "Microscelotherapy",
 		thumbnail: Image7,
 		content: [
 			{
-				title: "Microschelotherapy",
+				title: "Microscelotherapy",
 				paragraph: [
 					`We offer microsclerotherapy, a specialized treatment aimed at reducing the appearance of unsightly spider veins and small varicose veins. Spider veins are small, dilated blood vessels that can appear on the legs and other areas of the body, causing cosmetic concerns. Our microsclerotherapy treatment involves injecting a sclerosing solution directly into these veins, causing them to shrink and fade over time. This safe and effective procedure can help you regain confidence by achieving smoother and more even-toned skin.`,
 					`Our experienced practitioners are well-versed in the art of microsclerotherapy and understand the intricacies of treating spider veins. During your consultation, we will carefully assess your veins and develop a personalized treatment plan tailored to your specific needs. The procedure itself is minimally invasive, with the sclerosing solution delivered through fine needles directly into the targeted veins. Our team will ensure your comfort throughout the process, and you can typically return to your regular activities immediately after treatment.`,

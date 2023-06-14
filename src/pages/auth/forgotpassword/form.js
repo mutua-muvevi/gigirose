@@ -9,6 +9,8 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import TextFieldWrapper from "../../../components/formui/textfield/textfield";
+import { connect } from 'react-redux';
+import { forgotPassword } from '../../../redux/auth/action';
 
 const INITIAL_FORM_STATE = {
 	email: "",
@@ -24,12 +26,13 @@ const StyledForgotPasswordForm = styled(Box)(({theme}) => ({
 	minWidth: "50vw",
 }))
 
-const ForgotPasswordForm = () => {
+const ForgotPasswordForm = ({forgotPassword}) => {
 	
 	const [ showSuccess, setShowSuccess ] = useState(true);
 
 	const submitHandler = ( values ) => {
 		console.log("VALUES", values)
+		forgotPassword(values)
 	}
 
 	return (
@@ -69,4 +72,13 @@ const ForgotPasswordForm = () => {
 	)
 }
 
-export default ForgotPasswordForm
+const mapStateToProps = ({}) => ({
+
+})
+
+
+const mapDispatchToProps = (dispatch) => ({
+	forgotPassword : (values) => dispatch(forgotPassword(values))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForgotPasswordForm)

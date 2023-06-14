@@ -5,6 +5,7 @@ import { useTheme } from "@emotion/react";
 
 const ReusableParagraphs = ({ paragraph, color }) => {
 	const theme = useTheme();
+	
 	return (
 		<>
 			{paragraph

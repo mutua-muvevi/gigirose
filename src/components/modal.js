@@ -29,7 +29,7 @@ const IconStyle={
 	fontSize: "inherit"
 }
 
-const ModalComponent = ({header, open, close, width, children, type}) => {
+const ModalComponent = ({header, open, close, width, children, type, backgroundColor, color}) => {
 	
 	const theme = useTheme()
 	
@@ -38,13 +38,13 @@ const ModalComponent = ({header, open, close, width, children, type}) => {
 		top: '50%',
 		left: '50%',
 		transform: 'translate(-50%, -50%)',
-		bgcolor:  type === "delete" ? "error.lighter" : "secondary.main",
+		backgroundColor:  backgroundColor ? backgroundColor: "#ffffff",
 		boxShadow: 24,
 		p: 0,
 		width: width,
 		overflow: "hidden",
 		borderRadius: 2,
-		color: "#fff"
+		color: color ? color : theme.palette.text.primary
 	};
 
 	const styledExclamationIcon = {

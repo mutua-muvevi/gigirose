@@ -4,6 +4,8 @@ import { Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 
 import ResetPasswordForm from "./form";
+import { resetPassword } from '../../../redux/auth/action';
+import { connect } from 'react-redux';
 
 const AccountActivationWrapper = styled(Stack)(({ theme }) => ({
 	margin: 0,
@@ -36,4 +38,12 @@ const ResetPassword = () => {
 	)
 }
 
-export default ResetPassword
+const mapStateToProps = ({}) => ({
+
+})
+
+const mapDispatchToProps = (dispatch) => ({
+	resetPassword : (values) => dispatch(resetPassword(values))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ResetPassword)

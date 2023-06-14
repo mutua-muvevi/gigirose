@@ -11,7 +11,7 @@ import { footerInfo } from "./info";
 const imageUrl = require("../../assets/images/design.jpg");
 
 const StyledFooter = styled(Box)(({ theme }) => ({
-	backgroundColor: "#000000",
+	backgroundColor: theme.palette.primary.main,
 	color: "#ffffff",
 }));
 
@@ -55,7 +55,7 @@ const Footer = () => {
 					<Stack direction="column" spacing={3} >
 						<Typography variant="h2" sx={{ml:3, fontFamily: "'Merienda', cursive"}}>
 							Contact{" "}
-							<span style={{ color: theme.palette.primary.main }}>
+							<span style={{ color: "#fff" }}>
 								Us
 							</span>
 						</Typography>

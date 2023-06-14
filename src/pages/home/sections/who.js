@@ -15,8 +15,7 @@ const text = [
 const StyledWrapper = styled(Box)(({ theme }) => ({
 	paddingTop: "100px",
 	paddingBottom: "100px",
-	backgroundColor: theme.palette.secondary.main,
-	color: "#fff"
+	backgroundColor: "#fff"
 }));
 
 const StyledGrid = styled(Grid)(({ theme }) => ({}));

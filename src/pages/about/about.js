@@ -7,7 +7,7 @@ import Mission from "./sections/mission";
 import Company from "./sections/company";
 
 const subtitle = [
-	`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula euismod mauris, ut ultrices nisi auctor at. Donec pellentesque orci eget massa interdum, sed tempor nisi aliquam. Proin non ipsum sem.`
+	`We offer an array of meticulously curated products designed to bring out your inner radiance, ensuring every customer leaves with confidence and grace.`
 ]
 
 const StyledWrapper = styled(Box)(({ theme }) => ({

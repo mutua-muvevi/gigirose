@@ -69,14 +69,14 @@ export const signOutUser = () => ({
 export const registerUser = (values) => {
 	return async (dispatch) => {
 		try {
-
+			console.log(values)
 			const res = await axios.post(
 				`http://localhost:7500/api/user/register`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/register`,
 				values,
 				{
 					headers: {
-						"Content-Type": "multipart/form-data",
+						"Content-Type": "application/json",
 					},
 				}
 			)
@@ -93,7 +93,7 @@ export const registerUser = (values) => {
 
 export const loginUser = (values) => {
 	return async (dispatch) => {
-		try {
+		try {console.log("From action", values)
 			const res = await axios.post(
 				`http://localhost:7500/api/user/login`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/login`,

@@ -14,8 +14,7 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
 }))
 
 const StyledCard = styled(Card)(({ theme }) => ({
-	backgroundColor: theme.palette.secondary.main,
-	color: "#fff"
+
 }))
 
 const ServiceCards = () => {
@@ -51,7 +50,7 @@ const ServiceCards = () => {
 													</Typography>
 
 													<Typography variant="body1">
-														{truncateStr(el.content[0].paragraph[0], 90)}
+														{truncateStr(el.content[0].paragraph[0], 100)}
 													</Typography>
 												</Stack>
 											</CardContent>

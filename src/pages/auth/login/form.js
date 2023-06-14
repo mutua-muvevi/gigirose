@@ -38,8 +38,8 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 	const navigate = useNavigate()
 
 	const submitHandler = ( values ) => {
-		// loginUser(values)
-		console.log(values)
+		console.log("From form",values)
+		loginUser(values)
 		
 		if(token === null){
 			setShowError(true)
@@ -51,7 +51,7 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 			console.log("Token here is", token)
 	
 			setTimeout(() => {
-				navigate("/admin/freelancer/home")
+				// navigate("/admin/freelancer/home")
 			}, 1500);
 		}
 		
