@@ -21,6 +21,7 @@ const FORM_VALIDATION = Yup.object().shape({
 
 
 const StyledForgotPasswordForm = styled(Box)(({theme}) => ({
+	minWidth: "50vw",
 }))
 
 const ForgotPasswordForm = () => {
@@ -57,7 +58,6 @@ const ForgotPasswordForm = () => {
 								variant="contained"
 								type="submit"
 								startIcon={<FaPaperPlane style={{ fontSize: "inherit" }}/>}
-								sx={{width:"100%"}}
 							>
 								Submit
 							</Button>

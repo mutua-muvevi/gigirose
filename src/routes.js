@@ -10,7 +10,7 @@ import Services from "./pages/services/services";
 import NotFound from "./pages/error/404";
 import Register from "./pages/auth/register/register";
 import Login from "./pages/auth/login/login";
-import ForgotPasswordForm from "./pages/auth/forgotpassword/form";
+import ForgotPassword from "./pages/auth/forgotpassword/forgotpassword";
 import ResetPassword from "./pages/auth/resetpassword/resetpassword";
 
 //router function
@@ -48,7 +48,7 @@ const Router = () => {
 		},
 		{
 			path: "/forgotpassword",
-			element: <ForgotPasswordForm/>,
+			element: <ForgotPassword/>,
 		},
 		{
 			path: "/resetpassword",

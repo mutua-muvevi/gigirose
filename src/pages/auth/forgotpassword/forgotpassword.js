@@ -6,8 +6,11 @@ import { styled } from "@mui/system";
 import ForgotPasswordForm from "./form";
 
 const AccountActivationWrapper = styled(Stack)(({ theme }) => ({
-	width: "80vw",
-	height: "80vh",
+	margin: 0,
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+	minHeight: "100vh",
 }))
 
 
@@ -21,10 +24,13 @@ const ForgotPassword = () => {
 			<Stack
 				direction="column"
 				justifyContent="center"
-				alignItems="center"
-				spacing={3}
+				alignItems="flex-start"
+				spacing={5}
+				style={{
+					minWidth: "50vw",
+				}}
 			>
-				<Typography variant="h3" color="text.primary">
+				<Typography variant="h2" color="text.primary">
 					Enter your email
 				</Typography>
 				<ForgotPasswordForm/>
