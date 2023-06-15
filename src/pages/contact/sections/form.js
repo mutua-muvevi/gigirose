@@ -6,28 +6,31 @@ import * as Yup from "yup";
 import TextFieldWrapper from "../../../components/formui/textfield/textfield";
 
 import { contactForm } from "../info";
+import { postContact } from "../../../redux/contact/action";
+
+import { connect } from "react-redux";
 
 const StyledContactForm = styled(Box)(({ theme }) => ({
 
 }))
 
 const INITIAL_FORM_STATE = {
-	name: "",
+	fullname: "",
 	email: "",
 	subject: "",
 	message: "",
 }
 
 const FORM_VALIDATION = Yup.object().shape({
-	name: Yup.string().min(4, 'Minimum characters required is 4'),
+	fullname: Yup.string().min(5, 'Minimum characters required is 5'),
 	email: Yup.string().email("Please add a valid email").required("Please add an email"),
-	subject: Yup.string().min(5, "Minimum characters required is 5"),
-	message: Yup.string().min(25, "Minimum characters required is 25"),
+	subject: Yup.string().min(10, "Minimum characters required is 10"),
+	message: Yup.string().min(20, "Minimum characters required is 20").max(1000, "Maximum characters required is 1000"),
 })
 
-const ContactForm = () => {
+const ContactForm = ({postContact}) => {
 	const submitValues = (values) => {
-		console.log(values)
+		postContact(values)
 	}
 	return (
 		<StyledContactForm>
@@ -63,7 +66,7 @@ const ContactForm = () => {
 							/>
 						</Grid>
 						<Grid item  xs={12} sm={12} md={12} lg={12} xl={12}>
-							<Button variant="contained" color="primary">
+							<Button variant="contained" color="primary" type="submit">
 								Send Message
 							</Button>
 						</Grid>
@@ -74,4 +77,10 @@ const ContactForm = () => {
 	)
 }
 
-export default ContactForm
+const mapStateToProps = ({}) => ({})
+
+const mapDispatchToProps = (dispatch) => ({
+	postContact: (values) => dispatch(postContact(values))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm)

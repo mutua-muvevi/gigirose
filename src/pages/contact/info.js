@@ -2,7 +2,7 @@ export const contactForm = [
 	{
 		type: "text",
 		label: "Name",
-		name:"name",
+		name:"fullname",
 		xs:12,
 		sm:12,
 		md:12,
