@@ -1,77 +1,59 @@
-import authTypes from "./types";
+import bookTypes from "./types";
 import axios from "axios";
 
 
-export const startRegisterUser = () => ({
-	type: authTypes.START_REGISTER_USER,
+export const startpostBookService = () => ({
+	type: bookTypes.START_POST_BOOK_SERVICE,
 })
 
-export const registerUserSuccess = (token) => ({
-	type: authTypes.SUCCESS_REGISTER_USER,
+export const postBookServiceSuccess = (book) => ({
+	type: bookTypes.SUCCESS_POST_BOOK_SERVICE,
+	payload: book,
+})
+
+export const postBookServiceFail = (errMessage) => ({
+	type: bookTypes.FAIL_POST_BOOK_SERVICE,
+	payload: errMessage,
+})
+
+
+
+export const startFetchBookService = () => ({
+	type: bookTypes.START_FETCH_BOOK_SERVICE,
+})
+
+export const fetchBookServiceSuccess = (token) => ({
+	type: bookTypes.SUCCESS_FETCH_BOOK_SERVICE,
 	payload: token,
 })
 
-export const registerUserFail = (errMessage) => ({
-	type: authTypes.FAIL_REGISTER_USER,
+export const fetchBookServiceFail = (errMessage) => ({
+	type: bookTypes.FAIL_FETCH_BOOK_SERVICE,
 	payload: errMessage,
 })
 
 
-
-export const startLoginUser = () => ({
-	type: authTypes.START_LOGIN_USER,
+export const loadDeleteBook = () => ({
+	type: bookTypes.START_DELETE_BOOK,
 })
 
-export const loginUserSuccess = (token) => ({
-	type: authTypes.SUCCESS_LOGIN_USER,
-	payload: token,
-})
-
-export const loginUserFail = (errMessage) => ({
-	type: authTypes.FAIL_LOGIN_USER,
-	payload: errMessage,
-})
-
-
-export const loadForgotPassword = () => ({
-	type: authTypes.START_FORGOT_PASSWORD,
-})
-
-export const postForgotPasswordSuccess = (data) => ({
-	type: authTypes.SUCCESS_FORGOT_PASSWORD,
+export const postDeleteBookSuccess = (data) => ({
+	type: bookTypes.SUCCESS_DELETE_BOOK,
 	payload: data,
 })
 
-export const postForgotPasswordFail = (errMessage) => ({
-	type: authTypes.FAIL_FORGOT_PASSWORD,
-	payload: errMessage,
-})
-
-export const loadResetPassword = () => ({
-	type: authTypes.START_RESET_PASSWORD,
-})
-
-export const postResetPasswordSuccess = (data) => ({
-	type: authTypes.SUCCESS_RESET_PASSWORD,
-	payload: data,
-})
-
-export const postResetPasswordFail = (errMessage) => ({
-	type: authTypes.FAIL_RESET_PASSWORD,
+export const postDeleteBookFail = (errMessage) => ({
+	type: bookTypes.FAIL_DELETE_BOOK,
 	payload: errMessage,
 })
 
 
-export const signOutUser = () => ({
-	type: authTypes.LOGOUT_USER
-})
-
-export const registerUser = (values) => {
+export const postBookService = (values) => {
 	return async (dispatch) => {
 		try {
-			console.log(values)
+			
 			const res = await axios.post(
-				`http://localhost:7500/api/user/register`,
+				`http://localhost:7500/api/book/post`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/register`,
 				values,
 				{
@@ -80,10 +62,10 @@ export const registerUser = (values) => {
 					},
 				}
 			)
-			startRegisterUser()
-			dispatch(registerUserSuccess(res.data))
+			startpostBookService()
+			dispatch(postBookServiceSuccess(res.data))
 		} catch (error) {
-			dispatch(registerUserFail(error.response))
+			dispatch(postBookServiceFail(error.response))
 			console.log(error.response)
 		}
 	}
@@ -91,13 +73,12 @@ export const registerUser = (values) => {
 
 
 
-export const loginUser = (values) => {
+export const fetchBookService = () => {
 	return async (dispatch) => {
-		try {console.log("From action", values)
-			const res = await axios.post(
-				`http://localhost:7500/api/user/login`,
+		try {
+			const res = await axios.get(
+				`http://localhost:7500/api/book/fetchAll`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/login`,
-				values,
 				{
 					headers: {
 						"Content-Type": "application/json",
@@ -105,64 +86,25 @@ export const loginUser = (values) => {
 				}
 				
 			)
-			startLoginUser()
-			dispatch(loginUserSuccess(res.data))
+			startFetchBookService()
+			dispatch(fetchBookServiceSuccess(res.data))
 		} catch (error) {
-			dispatch(loginUserFail(error.response.data.error))
+			dispatch(fetchBookServiceFail(error.response.data.error))
 		}
 	}
 }
 
 
-export const forgotPassword = (values) => {
+export const deleteBook = (id) => {
 	return async (dispatch) => {
 		try {
-			const res = await axios.post(
-				`http://localhost:7500/api/user/forgotpassword`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/forgotpassword`,
-				values,
-				{
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
+			const res = await axios.delete(
+				`http://localhost:7500/api/book/delete/${id}`,
 			)
-			loadForgotPassword()
-			dispatch(postForgotPasswordSuccess(res.data.data))
+			loadDeleteBook()
+			dispatch(postDeleteBookSuccess(res.data.data))
 		} catch (error) {
-			dispatch(postForgotPasswordFail(error.response))
-		}
-	}
-}
-
-export const resetPassword = (values, params) => {
-	return async (dispatch) => {
-		try {
-			const res = await axios.post(
-				`http://localhost:7500/api/user/resetpasword/${params}`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/resetpasword/${params}`,
-				values,
-				{
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
-			)
-			loadResetPassword()
-			postResetPasswordSuccess(res.data.data)
-		} catch (error) {
-			dispatch(postResetPasswordFail(error.response.data.error))
-		}
-	}
-}
-
-export const logoutUser = () => {
-	return (dispatch) => {
-		try {
-			const storage = window.localStorage
-			storage.clear()
-		} catch (error) {
-			console.log(error)
+			dispatch(postDeleteBookFail(error.response))
 		}
 	}
 }

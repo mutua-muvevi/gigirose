@@ -6,6 +6,8 @@ import * as Yup from "yup";
 
 import TextfieldWrapper from "../../components/formui/textfield/textfield";
 import SelectField from "../../components/formui/select/select";
+import { postBookService } from "../../redux/book/action";
+import { connect } from "react-redux";
 
 
 const StyledWrapper = styled(Box)(({ theme }) => ({}));
@@ -52,9 +54,9 @@ const FORM_VALIDATION = Yup.object().shape({
 		.required("Please add an address"),
 });
 
-const BookForm = () => {
+const BookForm = ({postBooking}) => {
 	const submitHandler = (values) => {
-		console.log(values);
+		postBooking(values)
 	};
 
 	return (
@@ -74,8 +76,6 @@ const BookForm = () => {
 								name="email"
 								label="Email"
 								size="small"
-								textColor="#fff"
-								borderColor="#fff"
 							/>
 						</Grid>
 						<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -84,8 +84,6 @@ const BookForm = () => {
 								name="fullname"
 								label="Fullname"
 								size="small"
-								textColor="#fff"
-								borderColor="#fff"
 							/>
 						</Grid>
 						<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -94,8 +92,6 @@ const BookForm = () => {
 								name="telephone"
 								label="Telephone"
 								size="small"
-								textColor="#fff"
-								borderColor="#fff"
 							/>
 						</Grid>
 						<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -104,8 +100,6 @@ const BookForm = () => {
 								name="service"
 								label="Services"
 								size="small"
-								textColor="#fff"
-								borderColor="#fff"
 								options={services}
 							/>
 						</Grid>
@@ -115,8 +109,6 @@ const BookForm = () => {
 								name="address"
 								label="Address"
 								size="small"
-								textColor="#fff"
-								borderColor="#fff"
 							/>
 						</Grid>
 						<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -133,4 +125,10 @@ const BookForm = () => {
 	);
 };
 
-export default BookForm;
+const mapStateToProps = ({}) => ({})
+
+const mapDispatchToProps = (dispatch) => ({
+	postBooking: (values) => dispatch(postBookService(values))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookForm);
