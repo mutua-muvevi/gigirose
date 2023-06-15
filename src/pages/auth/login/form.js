@@ -38,7 +38,6 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 	const navigate = useNavigate()
 
 	const submitHandler = ( values ) => {
-		console.log("From form",values)
 		loginUser(values)
 		
 		if(token === null){
@@ -48,7 +47,6 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 		
 		if( token && token.success === true){
 			setShowSuccess(true)
-			console.log("Token here is", token)
 	
 			setTimeout(() => {
 				navigate("/admin/bookings")

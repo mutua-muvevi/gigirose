@@ -1,4 +1,4 @@
-import { Box, List, ListItem, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { styled } from "@mui/system"
 import ReusableParagraphs from "../../../layout/paragraphs";
 
@@ -10,7 +10,7 @@ const ModalDetails = ({ data }) => {
 	return (
 		<StyledModal>
 			<Stack direction="column" spacing={3}>
-				<ReusableParagraphs paragraph={data.paragraph} color="#ffffff"/>
+				<ReusableParagraphs paragraph={data.paragraph} />
 				{
 					data.list ? (
 						<Stack direction="column" >

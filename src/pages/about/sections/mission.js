@@ -29,25 +29,23 @@ const StyledCardBox = styled(Box)(({ theme }) => ({
 	borderRadius: "10px",
 	padding: "10px",
 	cursor: "pointer",
-	minHeight: "200px"
+	minHeight: "200px",
 }));
 
-const cardArray = [
-	company.mission,
-	company.vision,
-	company.partners,
+const cardArray = [company.mission, company.vision, company.partners];
+
+const text = [
+	"We are committed to being pioneers in the provision of advanced beauty and skincare treatments. Our mission is to bring the future of beauty to the present, to demystify the complexities of advanced skincare, and to make groundbreaking treatments accessible to everyone. Our specialists regularly participate in training sessions to stay abreast of the latest techniques and treatments. We take pride in offering a wide range of cutting-edge services like Dermal Fillers, Anti-Wrinkle Treatments, Threadlifts, Stretchmark Reduction, and Vitamin Boosts. Through our relentless pursuit of knowledge and commitment to innovation, we aim to revolutionize the beauty experience for our clients, offering them the very best the industry",
 ];
 
-const text = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula euismod mauris, ut ultrices nisi auctor at. Donec pellentesque orci eget massa interdum, sed tempor nisi aliquam. Proin non ipsum sem. Nunc tincidunt tincidunt libero. Donec posuere tempor mattis. Cras blandit turpis eu risus commodo bibendum."]
-
 const Mission = () => {
-	const [ open, setOpen ] = useState(false)
-	const [ modalData, setModalData ] = useState({})
+	const [open, setOpen] = useState(false);
+	const [modalData, setModalData] = useState({});
 
 	const modalHandler = (item) => {
-		setModalData(item)
-		setOpen(true)
-	}
+		setModalData(item);
+		setOpen(true);
+	};
 
 	return (
 		<>
@@ -59,13 +57,10 @@ const Mission = () => {
 						spacing={3}
 						sx={{ minHeight: "50vh" }}
 					>
-						<TitleSubtitle
-							title="Mission Statements"
-							text={text}
-						/>
+						<TitleSubtitle title="Mission Statements" text={text} />
 						<div>
 							<Grid container spacing={3}>
-								{cardArray.map((item, i) => (
+								{company.statements.map((item, i) => (
 									<Grid
 										item
 										xs={12}
@@ -77,12 +72,15 @@ const Mission = () => {
 										onClick={() => modalHandler(item)}
 									>
 										<StyledCardBox>
-											<Stack direction="column" spacing={2}>
-												<Typography variant="h5">
+											<Stack
+												direction="column"
+												spacing={2}
+											>
+												<Typography variant="h5" color="private">
 													{item.title}
 												</Typography>
 
-												<Typography variant="body1">
+												<Typography variant="body1" color="private">
 													{truncateStr(
 														item.paragraph[0],
 														180
@@ -103,9 +101,7 @@ const Mission = () => {
 				open={open}
 				close={() => setOpen(false)}
 				width="90vw"
-				children={
-					<ModalDetails data={modalData}/>
-				}
+				children={<ModalDetails data={modalData} c/>}
 			/>
 		</>
 	);

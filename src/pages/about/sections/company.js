@@ -4,6 +4,7 @@ import { styled } from "@mui/system";
 import { company } from "../info";
 import TitleSubtitle from "../../../layout/titlesubtitle";
 import ReusableParagraphs from "../../../layout/paragraphs";
+import { useTheme } from "@emotion/react";
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
 	paddingTop: "50px",
@@ -11,6 +12,8 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
 }))
 
 const Company = () => {
+	const theme = useTheme();
+
 	return (
 		<StyledWrapper>
 			<Container maxWidth="xl">
@@ -20,6 +23,7 @@ const Company = () => {
 					/>
 					<ReusableParagraphs
 						paragraph={company.about}
+						color={theme.palette.primary.main}
 					/>
 				</Stack>
 			</Container>

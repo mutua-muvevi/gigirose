@@ -1,7 +1,6 @@
-import imageOne from "../../assets/images/design.jpg";
-import imageTwo from "../../assets/images/design1.jpg";
+import imageOne from "../../assets/images/footer2.jpg";
+import imageTwo from "../../assets/images/wrinkle2.jpg";
 import imageThree from "../../assets/images/design2.jpg";
-import imageFour from "../../assets/images/design3.jpg";
 
 import Image1 from "../../assets/images/Dermal Filler.jpg";
 import Image2 from "../../assets/images/design1.jpg";
@@ -12,24 +11,24 @@ import Image6 from "../../assets/images/design5.jpg";
 import Image7 from "../../assets/images/testimonial.jpg";
 import Image8 from "../../assets/images/stretchmarks.jpg"
 
-import testimonialOne from "../../assets/images/testimonial.jpg";
-import testimonialTwo from "../../assets/images/testimonial1.jpg";
-import testimonialThree from "../../assets/images/testimonial2.jpg";
+import testimonialOne from "../../assets/images/Testimonial 1.jpg";
+import testimonialTwo from "../../assets/images/Testimonial 2.jpg";
+import testimonialThree from "../../assets/images/Testimonial 3.jpg";
 
 export const bannerInfo = [
 	{
-		title: "GIGIRose Beauty Products",
-		description: `Lorem Ipsum long description One`,
+		title: "Welcome to GIGIRose Beauty Products",
+		description: `With Expert Services Tailored to You, Discover a New Level of Beauty. Rejuvenate, Revitalize, and Renew with Our Transformative Treatments. `,
 		image: imageOne
 	},
 	{
-		title: "Lorem Ipsum title Two",
-		description: `Lorem Ipsum long description Two`,
+		title: "Say Goodbye to Wrinkles",
+		description: `Revitalize your skin with our innovative anti-wrinkle treatments, designed to rejuvenate your skin and soften signs of aging`,
 		image: imageTwo
 	},
 	{
-		title: "Lorem Ipsum title Three",
-		description: `Lorem Ipsum long description Three`,
+		title: "Fade Away Stretch Marks",
+		description: `With our cutting-edge stretch mark reduction treatments, you can bid farewell to unwanted marks and embrace clear, confident skin`,
 		image: imageThree
 	},
 ]

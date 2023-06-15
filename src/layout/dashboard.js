@@ -10,6 +10,9 @@ import DrawerComponent from "./drawer/drawer";
 import PrimarySearchAppBar from "./topbar/topbar";
 
 import { connect } from "react-redux";
+import { fetchUser } from '../redux/user/action';
+import { fetchBookService } from '../redux/book/action';
+import { fetchContact } from '../redux/contact/action';
 
 const Main = styled(Box)(({theme}) => ({
 	backgroundColor: theme.palette.background.default
@@ -26,7 +29,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 }));
 
 
-const Dashboard = ({ token, user }) => {
+const Dashboard = ({ token, user, fetchUser, fetchBooks, fetchContact }) => {
 	const theme = useTheme();
 	const [open, setOpen] = useState(true);
 	
@@ -40,11 +43,21 @@ const Dashboard = ({ token, user }) => {
 
 	const navigate = useNavigate()
 
+		useEffect(() => {
+		try {
+			fetchUser(token);
+			fetchBooks()
+			fetchContact()
+		} catch (error) {
+			console.log(error);
+		}
+	}, [token, fetchUser, fetchContact, fetchBooks]);
+
 	useEffect(() => {
 		if (!user){
 			return navigate("/auth/login")
 		};
-	}, [ user ])
+	}, [ user, token ])
 
 
 	return (
@@ -70,4 +83,11 @@ const mapStatetoProps = ({ auth, user }) => ({
 	user: user.user
 })
 
-export default connect(mapStatetoProps)(Dashboard)
+const mapDispatchToProps = (dispatch) => ({
+	fetchUser: (token) => dispatch(fetchUser(token)),
+
+	fetchBooks : () => dispatch(fetchBookService()),
+	fetchContact: () => dispatch(fetchContact())
+});
+
+export default connect(mapStatetoProps, mapDispatchToProps)(Dashboard)

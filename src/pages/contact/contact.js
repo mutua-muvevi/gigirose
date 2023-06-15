@@ -5,7 +5,7 @@ import Banner from "../../layout/banner";
 import ContactDetailsForm from "./sections/details";
 import Map from "./sections/map";
 
-import Image from "../../assets/images/design4.jpg"
+import Image from "../../assets/images/contactus.jpg"
 
 const StyledContact = styled(Box)(({ theme }) => ({
 }))

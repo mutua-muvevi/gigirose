@@ -55,7 +55,7 @@ const UserMenu = ({ me }) => {
 	};
 
 	const logout = () => {
-		window.localStorage.clear()
+		window.localStorage.removeItem('key')
 	}
 
 	const linkStyles = {

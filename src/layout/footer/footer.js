@@ -8,7 +8,7 @@ import {
 import { styled } from "@mui/system";
 import { footerInfo } from "./info";
 
-const imageUrl = require("../../assets/images/design.jpg");
+const imageUrl = require("../../assets/images/footer2.jpg");
 
 const StyledFooter = styled(Box)(({ theme }) => ({
 	backgroundColor: theme.palette.primary.main,
