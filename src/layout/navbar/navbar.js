@@ -80,7 +80,7 @@ const Navbar = () => {
 								<StyledMenuStack direction="row" justifyContent="space-between" alignItems="center" spacing={5}>
 									<StyledLogoSection>
 										{/* <img src={logo} alt="Skydive logo" style={styledLogo}/> */}
-										<Typography variant="h5" color="primary" style={{fontFamily: "'Merienda', cursive",}}>
+										<Typography variant="h5"  color="secondary" style={{fontFamily: "'Merienda', cursive",}}>
 											<span style={{color: "#fff"}}> GIGI</span>Rose
 										</Typography>
 									</StyledLogoSection>

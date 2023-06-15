@@ -1,15 +1,16 @@
-import React from "react";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import { styled } from "@mui/system";
-import imageThree from "../../../assets/images/design2.jpg";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-const subtitle = `Ignite Your Beauty Potential, Unveil Your True Radiance, and Illuminate Your Skin. With Expert Services Tailored to You, Discover a New Level of Beauty. Rejuvenate, Revitalize, and Renew with Our Transformative Treatments. Experience the Essence of Luxury Beauty and Unlock a World of Glamour. From Head to Toe, Embrace the Art of Timeless Beauty. Elevate Your Look and Embrace Your Beauty Revolution.`;
+import { Box, Button, Container, Fade, Stack, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+
+import BookingForm from "./form"
+import { bannerInfo } from "../info";
+import ModalComponent from "../../../components/modal";
+
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
 	height: "75vh",
 	overflow: "hidden",
-	backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.75)), url(${imageThree})`,
 	backgroundAttachment: "fixed",
 	backgroundSize: "cover",
 	backgroundPosition: "center",
@@ -20,50 +21,60 @@ const StyledWrapper = styled(Box)(({ theme }) => ({
 
 const BannerItem = styled(Container)(({ theme }) => ({}));
 
-const styledLink = {
-	textDecoration: "none",
-	color: "inherit",
-};
-
 const StyledButton = styled(Button)(({ theme }) => ({
 	width: "200px",
 }));
 
 const Banner = () => {
-	return (
-		<StyledWrapper>
-			<BannerItem maxWidth="xl">
-				<Stack direction="column" spacing={3}>
-					<Typography
-						variant="h2"
-						style={{ fontFamily: "'Merienda', cursive" }}
-					>
-						GIGIRose Beauty Products
-					</Typography>
-					<Typography
-						variant="subtitle1"
-						sx={{
-							fontFamily: "'Merienda', cursive",
-							display: {
-								xs: "none",
-								sm: "none",
-								md: "none",
-								lg: "block",
-								xl: "block",
-							},
-						}}
-					>
-						{subtitle}
-					</Typography>
+	const [index, setIndex] = useState(0);
+	const [ open, setOpen ] = useState(false)
 
-					<Link to="/landing/about" style={styledLink}>
-						<StyledButton variant="contained" color="primary">
-							About
-						</StyledButton>
-					</Link>
-				</Stack>
-			</BannerItem>
-		</StyledWrapper>
+	useEffect(() => {
+		const timer = setInterval(() => {
+			setIndex((prevIndex) => (prevIndex + 1) % bannerInfo.length);
+		}, 7500);
+		return () => clearInterval(timer);
+	}, []);
+
+	return (
+		<>
+			<Fade key={index} in={true} timeout={1000}>
+				<StyledWrapper
+					style={{
+						backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.75)), url(${bannerInfo[index].image})`,
+					}}
+				>
+					<BannerItem maxWidth="xl">
+						<Stack direction="column" spacing={3}>
+							<Typography
+								variant="h2"
+								style={{ fontFamily: "'Merienda', cursive" }}
+							>
+								{bannerInfo[index].title}
+							</Typography>
+							<Typography variant="subtitle1">
+								{bannerInfo[index].description}
+							</Typography>
+							<StyledButton variant="contained" color="secondary" onClick={() => setOpen(true)}>
+								<Typography variant="subtitle1" >
+									Book Online
+								</Typography>
+							</StyledButton>
+						</Stack>
+					</BannerItem>
+				</StyledWrapper>
+			</Fade>
+
+			<ModalComponent
+				header="Book Service"
+				open={open}
+				close={() => setOpen(false)}
+				width="75vw"
+				children={
+					<BookingForm/>
+				}
+			/>
+		</>
 	);
 };
 

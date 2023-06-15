@@ -41,7 +41,7 @@ export const services = [
 		]
 	},
 	{
-		title: "PDO COG & Thread Lifts",
+		title: "PDO, COG & Thread Lifts",
 		thumbnail: Image3,
 		content: [
 			{

@@ -14,6 +14,9 @@ import { drawerMenuItems } from "./info";
 
 import logo from "../../assets/images/logo.webp";
 import { useTheme } from "@emotion/react";
+import ModalComponent from "../../components/modal";
+import { useState } from "react";
+import BookForm from './form';
 
 const StyledLogoListItem = styled(List)(({ theme }) => ({}));
 
@@ -43,127 +46,42 @@ const navlinkStyle = {
 
 const SwipeableDrawerList = ({ mobileNav, setMobileNav }) => {
 	const theme = useTheme();
+	const [ open, setOpen ] = useState(false)
 
 	const styledWrapper = {
-		backgroundColor: theme.palette.secondary.main,
-		color: theme.palette.primary.main,
+		backgroundColor: theme.palette.primary.main,
+		color: theme.palette.secondary.main,
 		height: "100%",
 	};
 
 	return (
-		<Box role="presentation" sx={styledWrapper}>
-			<StyledLogoListItem
-				component="nav"
-				aria-label="Gigi rose mobile navigation"
-			>
-				<LogoParent>
-					{/* <LogoItem src={logo} alt="Skydive Rhino Kenya Logo"/> */}
-					<Typography
-						variant="h5"
-						color="primary"
-						style={{ fontFamily: "'Merienda', cursive" }}
-					>
-						<span style={{ color: "#fff" }}> GIGI</span>Rose
-					</Typography>
-				</LogoParent>
-
-				<Divider color="grey" />
-
-				<NavLink to="/landing/home" style={navlinkStyle}>
-					<ListItemButton
-						sx={{
-							minHeight: 48,
-							justifyContent: mobileNav ? "initial" : "center",
-							px: 2.5,
-						}}
-					>
+		<>
+			<Box role="presentation" sx={styledWrapper}>
+				<StyledLogoListItem
+					component="nav"
+					aria-label="Gigi rose mobile navigation"
+				>
+					<LogoParent>
+						{/* <LogoItem src={logo} alt="Skydive Rhino Kenya Logo"/> */}
 						<Typography
-							sx={{
-								opacity: mobileNav ? 1 : 0,
-								marginLeft: "15px",
-							}}
-							style={styledNavItems}
+							variant="h5"
+							color="secondary"
+							style={{ fontFamily: "'Merienda', cursive" }}
 						>
-							Home
+							<span style={{ color: "#fff" }}> GIGI</span>Rose
 						</Typography>
-					</ListItemButton>
-				</NavLink>
+					</LogoParent>
 
-				<NavLink to="/landing/about" style={navlinkStyle}>
-					<ListItemButton
-						sx={{
-							minHeight: 48,
-							justifyContent: mobileNav ? "initial" : "center",
-							px: 2.5,
-						}}
-					>
-						<Typography
-							sx={{
-								opacity: mobileNav ? 1 : 0,
-								marginLeft: "15px",
-							}}
-							style={styledNavItems}
-						>
-							About
-						</Typography>
-					</ListItemButton>
-				</NavLink>
+					<Divider color="grey" />
 
-				<NavLink to="/landing/services" style={navlinkStyle}>
-					<ListItemButton
-						sx={{
-							minHeight: 48,
-							justifyContent: mobileNav ? "initial" : "center",
-							px: 2.5,
-						}}
-					>
-						<Typography
-							sx={{
-								opacity: mobileNav ? 1 : 0,
-								marginLeft: "15px",
-							}}
-							style={styledNavItems}
-						>
-							Services
-						</Typography>
-					</ListItemButton>
-				</NavLink>
-
-				<NavLink to="/landing/contact" style={navlinkStyle}>
-					<ListItemButton
-						sx={{
-							minHeight: 48,
-							justifyContent: mobileNav ? "initial" : "center",
-							px: 2.5,
-						}}
-					>
-						<Typography
-							sx={{
-								opacity: mobileNav ? 1 : 0,
-								marginLeft: "15px",
-							}}
-							style={styledNavItems}
-						>
-							Contact
-						</Typography>
-					</ListItemButton>
-				</NavLink>
-
-				<Divider color="grey" />
-
-				{drawerMenuItems.bottom.map((item, index) => (
-					<NavLink to={item.link} style={navlinkStyle}>
+					<NavLink to="/landing/home" style={navlinkStyle}>
 						<ListItemButton
 							sx={{
 								minHeight: 48,
-								justifyContent: mobileNav
-									? "initial"
-									: "center",
+								justifyContent: mobileNav ? "initial" : "center",
 								px: 2.5,
 							}}
-							key={index}
 						>
-							{item.icon}
 							<Typography
 								sx={{
 									opacity: mobileNav ? 1 : 0,
@@ -171,13 +89,105 @@ const SwipeableDrawerList = ({ mobileNav, setMobileNav }) => {
 								}}
 								style={styledNavItems}
 							>
-								{item.label}
+								Home
 							</Typography>
 						</ListItemButton>
 					</NavLink>
-				))}
-			</StyledLogoListItem>
-		</Box>
+
+					<NavLink to="/landing/about" style={navlinkStyle}>
+						<ListItemButton
+							sx={{
+								minHeight: 48,
+								justifyContent: mobileNav ? "initial" : "center",
+								px: 2.5,
+							}}
+						>
+							<Typography
+								sx={{
+									opacity: mobileNav ? 1 : 0,
+									marginLeft: "15px",
+								}}
+								style={styledNavItems}
+							>
+								About
+							</Typography>
+						</ListItemButton>
+					</NavLink>
+
+					<NavLink to="/landing/services" style={navlinkStyle}>
+						<ListItemButton
+							sx={{
+								minHeight: 48,
+								justifyContent: mobileNav ? "initial" : "center",
+								px: 2.5,
+							}}
+						>
+							<Typography
+								sx={{
+									opacity: mobileNav ? 1 : 0,
+									marginLeft: "15px",
+								}}
+								style={styledNavItems}
+							>
+								Services
+							</Typography>
+						</ListItemButton>
+					</NavLink>
+
+					<NavLink to="/landing/contact" style={navlinkStyle}>
+						<ListItemButton
+							sx={{
+								minHeight: 48,
+								justifyContent: mobileNav ? "initial" : "center",
+								px: 2.5,
+							}}
+						>
+							<Typography
+								sx={{
+									opacity: mobileNav ? 1 : 0,
+									marginLeft: "15px",
+								}}
+								style={styledNavItems}
+							>
+								Contact
+							</Typography>
+						</ListItemButton>
+					</NavLink>
+
+					<Divider color="grey" />
+					<ListItemButton
+						onClick={() => setOpen(true)}
+						sx={{
+							minHeight: 48,
+							justifyContent: mobileNav
+								? "initial"
+								: "center",
+							px: 2.5,
+						}}
+					>
+						
+						<Typography
+							sx={{
+								opacity: mobileNav ? 1 : 0,
+								marginLeft: "15px",
+							}}
+							style={styledNavItems}
+						>
+							Booking
+						</Typography>
+					</ListItemButton>
+				</StyledLogoListItem>
+			</Box>
+			<ModalComponent
+				header="Book Service"
+				open={open}
+				close={() => setOpen(false)}
+				width="75vw"
+				children={
+					<BookForm/>
+				}
+			/>
+		</>
 	);
 };
 
