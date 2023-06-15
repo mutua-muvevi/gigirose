@@ -1,6 +1,13 @@
-import { Box, Button, Card, CardHeader, Pagination, Typography } from "@mui/material"
-import { styled } from "@mui/system"
-import { connect } from "react-redux"
+import {
+	Box,
+	Button,
+	Card,
+	CardHeader,
+	Pagination,
+	Typography,
+} from "@mui/material";
+import { styled } from "@mui/system";
+import { connect } from "react-redux";
 import {
 	DataGrid,
 	gridPageCountSelector,
@@ -10,11 +17,9 @@ import {
 } from "@mui/x-data-grid";
 import { FaRegEye } from "react-icons/fa";
 
-
 const StyledDataGridContainer = styled(Card)(({ theme }) => ({
 	borderRadius: theme.shape.default,
 }));
-
 
 const StyledDataGridHeader = styled(CardHeader)(({ theme }) => ({
 	backgroundColor: theme.palette.primary.main,
@@ -44,8 +49,7 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
 	},
 }));
 
-
-function CustomPagination() {
+const CustomPagination = () => {
 	const apiRef = useGridApiContext();
 	const page = useGridSelector(apiRef, gridPageSelector);
 	const pageCount = useGridSelector(apiRef, gridPageCountSelector);
@@ -60,12 +64,9 @@ function CustomPagination() {
 	);
 }
 
-const Wrapper = styled(Box)(({ theme }) => ({
+const Wrapper = styled(Box)(({ theme }) => ({}));
 
-}))
-
-const DashBooking = ({books}) => {
-
+const DashBooking = ({ books }) => {
 	const column = [
 		{
 			field: "fullname",
@@ -102,38 +103,51 @@ const DashBooking = ({books}) => {
 			headerName: "Date",
 			minWidth: 200,
 			flex: 1,
-			valueFormatter: (params) => new Date(params.value).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
+			valueFormatter: (params) =>
+				new Date(params.value).toLocaleDateString("en-US", {
+					month: "long",
+					day: "numeric",
+					year: "numeric",
+				}),
 		},
-	]
+	];
 
 	return (
 		<Wrapper>
-			<Typography variant="h3" color="primary" sx={{mb: 3, fontWeight: "700", fontFamily: "'Merienda', cursive"}}>
+			<Typography
+				variant="h3"
+				color="primary"
+				sx={{
+					mb: 3,
+					fontWeight: "700",
+					fontFamily: "'Merienda', cursive",
+				}}
+			>
 				My Bookings
 			</Typography>
 
 			<StyledDataGridContainer>
-			<StyledDataGridHeader title="My Projects" />
+				<StyledDataGridHeader title="Booking" />
 
-			<StyledDataGrid
-				rows={books}
-				columns={column}
-				pagination
-				autoPageSize
-				autoHeight
-				getRowId={(row) => row._id}
-				pageSize={20}
-				components={{
-					Pagination: CustomPagination,
-				}}
-			/>
-		</StyledDataGridContainer>
+				<StyledDataGrid
+					rows={books}
+					columns={column}
+					pagination
+					autoPageSize
+					autoHeight
+					getRowId={(row) => row._id}
+					pageSize={20}
+					components={{
+						Pagination: CustomPagination,
+					}}
+				/>
+			</StyledDataGridContainer>
 		</Wrapper>
-	)
-}
+	);
+};
 
-const mapStateToProps = ({book}) => ({
-	books: book.fetch.data
-})
+const mapStateToProps = ({ book }) => ({
+	books: book.fetch.data,
+});
 
-export default connect(mapStateToProps)(DashBooking)
+export default connect(mapStateToProps)(DashBooking);

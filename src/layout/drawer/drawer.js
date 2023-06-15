@@ -228,53 +228,6 @@ const DrawerComponent = ({
 						</StyledListItem>
 					</NavLink>
 				))}
-				<Divider sx={{ color: "secondary" }} />
-
-				{listItemsBottom.map((el, index) => (
-					<NavLink
-						style={({ isActive }) =>
-							isActive ? activeNavlink : navlinkStyle
-						}
-						to={el.path}
-						key={index}
-					>
-						<ListItemButton
-							sx={{
-								minHeight: 48,
-								justifyContent: open ? "initial" : "center",
-								px: 2.5,
-							}}
-						>
-							{el.icon}
-							<ListItemText
-								primary={el.label}
-								sx={{
-									opacity: open ? 1 : 0,
-									marginLeft: "15px",
-								}}
-							/>
-						</ListItemButton>
-					</NavLink>
-				))}
-				<Link
-					href="/auth/login"
-					onClick={logOut}
-					style={{ textDecoration: "none", color: "white" }}
-				>
-					<ListItemButton
-						sx={{
-							minHeight: 48,
-							justifyContent: open ? "initial" : "center",
-							px: 2.5,
-						}}
-					>
-						<SettingsPowerIcon sx={sx} />
-						<ListItemText
-							primary="Sign out"
-							sx={{ opacity: open ? 1 : 0, marginLeft: "15px" }}
-						/>
-					</ListItemButton>
-				</Link>
 			</List>
 		</Drawer>
 	);

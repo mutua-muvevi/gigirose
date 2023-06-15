@@ -19,14 +19,6 @@ export const listItemsTop = [
 		],
 	},
 	{
-		label: "Services",
-		path: "/admin/services",
-		icon: <AiFillAppstore style={sx}/>,
-		nested: [
-			{}
-		],
-	},
-	{
 		label: "Contacts",
 		path: "/admin/contacts",
 		icon: <MdContacts style={sx}/>,
@@ -34,13 +26,10 @@ export const listItemsTop = [
 			{}
 		],
 	},
-]
-
-export const listItemsBottom = [
 	// {
-	// 	label: "Settings",
-	// 	path: "#",
-	// 	icon:  <SettingsIcon sx={sx}/>,
+	// 	label: "Services",
+	// 	path: "/admin/services",
+	// 	icon: <AiFillAppstore style={sx}/>,
 	// 	nested: [
 	// 		{}
 	// 	],
