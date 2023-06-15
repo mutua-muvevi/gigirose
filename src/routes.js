@@ -12,6 +12,10 @@ import Register from "./pages/auth/register/register";
 import Login from "./pages/auth/login/login";
 import ForgotPassword from "./pages/auth/forgotpassword/forgotpassword";
 import ResetPassword from "./pages/auth/resetpassword/resetpassword";
+import Dashboard from "./layout/dashboard";
+import DashBooking from "./pages/dashboard/booking/booking";
+import DashServices from "./pages/dashboard/services/services";
+import DashContact from "./pages/dashboard/contact/contact";
 
 //router function
 const Router = () => {
@@ -35,6 +39,24 @@ const Router = () => {
 				{
 					path: "/landing/contact",
 					element: <Contact/>
+				},
+			]
+		},
+		{
+			path: "/admin",
+			element: <Dashboard/>,
+			children: [
+				{
+					path: "/admin/bookings",
+					element: <DashBooking/>
+				},
+				{
+					path: "/admin/services",
+					element: <DashServices/>
+				},
+				{
+					path: "/admin/contacts",
+					element: <DashContact/>
 				},
 			]
 		},

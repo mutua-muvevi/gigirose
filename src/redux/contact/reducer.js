@@ -13,7 +13,7 @@ const initialState = {
 	deleteError: null
 };
 
-const authReducer = (state = initialState, { type, payload }) => {
+const contactReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case contactTypes.START_POST_CONTACT:
 			return { 
@@ -87,4 +87,4 @@ const authReducer = (state = initialState, { type, payload }) => {
 	}
 };
 
-export default authReducer;
+export default contactReducer;

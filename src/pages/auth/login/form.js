@@ -51,7 +51,7 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 			console.log("Token here is", token)
 	
 			setTimeout(() => {
-				// navigate("/admin/freelancer/home")
+				navigate("/admin/bookings")
 			}, 1500);
 		}
 		
