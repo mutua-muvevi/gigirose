@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from './auth/reducer';
 import userReducer from './user/reducer';
 import contactReducer from './contact/reducer';
+import bookReducer from './book/reducer';
 
 
 const config = {
@@ -14,14 +15,16 @@ const config = {
 	whitelist: [
 		"auth",
 		"user",
-		"contact"
+		"contact",
+		"book"
 	],
 };
 
 const rootReducer = combineReducers({
 	auth: authReducer,
 	user: userReducer,
-	contact: contactReducer
+	contact: contactReducer,
+	book: bookReducer
 });
 
 const persistedReducer = persistReducer(config, rootReducer);

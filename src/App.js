@@ -6,15 +6,19 @@ import "./App.css";
 import ThemeProvider from "./theme";
 import { connect } from "react-redux";
 import { fetchUser } from "./redux/user/action";
+import { fetchBookService } from "./redux/book/action";
+import { fetchContact } from "./redux/contact/action";
 
-const App = ({ token, fetchUser }) => {
+const App = ({ token, fetchUser, fetchBooks, fetchContact }) => {
 	useEffect(() => {
 		try {
 			fetchUser(token);
+			fetchBooks()
+			fetchContact()
 		} catch (error) {
 			console.log(error);
 		}
-	}, [token, fetchUser]);
+	}, [token, fetchUser, fetchContact, fetchBooks]);
 	return (
 		<ThemeProvider>
 			<Router />
@@ -28,6 +32,9 @@ const mapStateToProps = ({ auth }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	fetchUser: (token) => dispatch(fetchUser(token)),
+
+	fetchBooks : () => dispatch(fetchBookService()),
+	fetchContact: () => dispatch(fetchContact())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -13,7 +13,7 @@ const initialState = {
 	deleteError: null
 };
 
-const authReducer = (state = initialState, { type, payload }) => {
+const bookReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case bookTypes.START_POST_BOOK_SERVICE:
 			return { 
@@ -87,4 +87,4 @@ const authReducer = (state = initialState, { type, payload }) => {
 	}
 };
 
-export default authReducer;
+export default bookReducer;
