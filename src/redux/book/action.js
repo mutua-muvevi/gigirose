@@ -54,7 +54,7 @@ export const postBookService = (values) => {
 			
 			const res = await axios.post(
 				`https://gigirosebeauty.onrender.com/api/book/post`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/register`,
+				// `http://localhost:7500/api/user/register`,
 				values,
 				{
 					headers: {
@@ -78,7 +78,7 @@ export const fetchBookService = () => {
 		try {
 			const res = await axios.get(
 				`https://gigirosebeauty.onrender.com/api/book/fetchAll`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/login`,
+				// `http://localhost:7500/api/user/login`,
 				{
 					headers: {
 						"Content-Type": "application/json",

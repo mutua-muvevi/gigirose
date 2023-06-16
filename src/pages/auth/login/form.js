@@ -139,9 +139,9 @@ const LoginForm = ({ loginUser, token, loginError, fetchUser }) => {
 								Forgot your password ?
 							</Typography>
 
-							<Link to="/forgotpassword">
+							<Link to="/register">
 								<Typography variant="body2" color="primary">
-									Reset password here
+									Don't have account? Register Here
 								</Typography>
 							</Link>
 						</Grid>

@@ -48,11 +48,11 @@ const Dashboard = ({ token, user, fetchUser, fetchBooks, fetchContact }) => {
 			fetchContact();
 
 			setTimeout(() => {
-				if (!user) {
+				if (!token) {
 					return navigate("/login");
 				}
 				return navigate("/admin/bookings");
-			}, 5000);
+			}, 15000);
 		} catch (error) {
 			console.log(error);
 		}

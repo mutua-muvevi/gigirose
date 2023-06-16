@@ -34,8 +34,8 @@ export const fetchUser = (token) => {
 	return async (dispatch) => {
 		try {console.log("The token we get is", token)
 			const res = await axios.get(
-				`http://localhost:7500/api/user/me`,
-				// `https://gigirosebeauty.onrender.com/api/user/me`,
+				// `http://localhost:7500/api/user/me`,
+				`https://gigirosebeauty.onrender.com/api/user/me`,
 				{
 					headers: {
 						Authorization:`${token}`,
@@ -56,7 +56,7 @@ export const editUser = ({id, token, values}) => {
 		try {
 			const res = await axios.put(
 				// `http://localhost:7500/api/user/edit/${id}`,
-				`https://gigirosebeauty.onrender.com//api/user/users`,
+				`https://gigirosebeauty.onrender.com/api/user/users`,
 				values,
 				{
 					headers: {

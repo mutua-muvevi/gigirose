@@ -54,9 +54,10 @@ const FORM_VALIDATION = Yup.object().shape({
 		.required("Please add an address"),
 });
 
-const BookForm = ({postBooking}) => {
-	const submitHandler = (values) => {
+const BookForm = ({postBooking, setOpen}) => {
+	const submitHandler = (values, { resetForm }) => {
 		postBooking(values)
+		setOpen(false)
 	};
 
 	return (

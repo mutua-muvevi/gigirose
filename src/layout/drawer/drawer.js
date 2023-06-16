@@ -193,7 +193,7 @@ const DrawerComponent = ({
 					{/* <LogoItem src={Logo} alt="Rhino John Prime Metal Logo"/> */}
 					<Typography
 						variant="h5"
-						color="primary"
+						color="secondary"
 						style={{ fontFamily: "'Merienda', cursive" }}
 					>
 						<span style={{ color: "#fff" }}> GIGI</span>Rose

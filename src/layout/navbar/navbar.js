@@ -6,13 +6,14 @@ import { AppBar,Toolbar, IconButton, Typography, Button, Menu, MenuItem, Divider
 import { FaBars } from "react-icons/fa";
 
 import { menuItems } from "./info";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import SwipeableSideDrawer from './drawer';
 
 import logo from "../../assets/images/logo.webp"
 import ModalComponent from '../../components/modal';
-import BookForm from './form';
+import BookingForm from "../../pages/home/sections/form"
+import { connect } from 'react-redux';
 
 const TopAppBar = styled(AppBar)(({theme}) => ({
 	zIndex: 3,
@@ -57,7 +58,7 @@ const iconButtonSX = {
 
 }
 
-const Navbar = () => {
+const Navbar = ({user}) => {
 
 	const [mobileNav, setMobileNav] = useState(false);
 	const [ open, setOpen ] = useState(false)
@@ -100,14 +101,23 @@ const Navbar = () => {
 										}
 									</Stack>
 
-
-									<StyledButtonStack direction="row" spacing={3}>
-										<StyledButton variant="contained" color="secondary" onClick={() => setOpen(true)}>
-											<Typography variant="subtitle1" >
-												Book Online
-											</Typography>
-										</StyledButton>
-									</StyledButtonStack>
+									{
+										user && user.user ? (
+											<Link to="/admin/bookings">
+												<StyledButton variant="contained" color="secondary">
+													{user.user.fullname}
+												</StyledButton>
+											</Link>
+										) : (
+										<StyledButtonStack direction="row" spacing={3}>
+											<StyledButton variant="contained" color="secondary" onClick={() => setOpen(true)}>
+												<Typography variant="subtitle1" >
+													Book Online
+												</Typography>
+											</StyledButton>
+										</StyledButtonStack>
+										)
+									}
 								</StyledMenuStack>
 							</StyledContainer>
 
@@ -148,11 +158,15 @@ const Navbar = () => {
 				close={() => setOpen(false)}
 				width="75vw"
 				children={
-					<BookForm/>
+					<BookingForm setOpen={setOpen}/>
 				}
 			/>
 		</>
 	);
 };
 
-export default Navbar;
+const mapStateToProps = ({user}) => ({
+	user: user,
+})
+
+export default connect(mapStateToProps)(Navbar);

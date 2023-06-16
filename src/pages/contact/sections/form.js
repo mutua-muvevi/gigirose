@@ -29,8 +29,9 @@ const FORM_VALIDATION = Yup.object().shape({
 })
 
 const ContactForm = ({postContact}) => {
-	const submitValues = (values) => {
+	const submitValues = (values, {resetForm}) => {
 		postContact(values)
+		resetForm()
 	}
 	return (
 		<StyledContactForm>

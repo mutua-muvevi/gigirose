@@ -52,7 +52,15 @@ const Banner = () => {
 							>
 								{bannerInfo[index].title}
 							</Typography>
-							<Typography variant="subtitle1">
+							<Typography variant="subtitle1" sx={{
+								display: {
+									xs: "none",
+									sm: "none",
+									md: "block",
+									lg: "block",
+									xl: "block"
+								}
+							}}>
 								{bannerInfo[index].description}
 							</Typography>
 							<StyledButton variant="contained" color="secondary" onClick={() => setOpen(true)}>
@@ -71,7 +79,7 @@ const Banner = () => {
 				close={() => setOpen(false)}
 				width="75vw"
 				children={
-					<BookingForm/>
+					<BookingForm open={open} setOpen={setOpen}/>
 				}
 			/>
 		</>

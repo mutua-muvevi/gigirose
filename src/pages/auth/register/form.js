@@ -12,6 +12,7 @@ import { registerItems } from "./info";
 import TextfieldWrapper from "../../../components/formui/textfield/textfield";
 import { registerUser } from "../../../redux/auth/action";
 import { connect } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const INITIAL_FORM_STATE = {
 	email: "",
@@ -46,11 +47,19 @@ const FORM_VALIDATION = Yup.object().shape({
 
 const StyledRegisterForm = styled(Box)(({ theme }) => ({}));
 
-const RegisterForm = ({register}) => {
+const RegisterForm = ({register, auth}) => {
 	const [showSuccess, setShowSuccess] = useState(true);
+	const navigate = useNavigate()
 
 	const submitHandler = (values) => {
 		register(values)
+		
+		setTimeout(() => {
+			if(auth.token.token.token){
+				return navigate("/login")
+			}
+		}, 2000);
+		
 	};
 
 	return (
@@ -97,8 +106,8 @@ const RegisterForm = ({register}) => {
 	);
 };
 
-const mapStatetoProps = () => ({
-
+const mapStatetoProps = ({auth}) => ({
+	auth: auth ? auth : null
 });
 
 const mapDispatchToProps = (dispatch) => ({
