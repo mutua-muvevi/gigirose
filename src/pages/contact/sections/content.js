@@ -27,16 +27,14 @@ const contactItems = [
 	{
 		title: "Phone",
 		items: [
-			"+254 700 000 000",
-			"+254 700 000 000",
+			"+44 7578 316 832",
 		],
 	},
 	{
 		title: "Email",
 		items: [
-			"emailOne@mail.com",
-			"emailTwo@mail.com",
-			"emailThree@mail.com",
+			"admin@gigirosebeauty.com",
+			"gigirosebeauty@gmail.com",
 		],
 	},
 ]

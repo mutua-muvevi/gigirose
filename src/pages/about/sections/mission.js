@@ -7,7 +7,7 @@ import TitleSubtitle from "../../../layout/titlesubtitle";
 import { company } from "../info";
 
 import { truncateStr } from "../../../utils/formatString";
-import BackgroundImage from "../../../assets/images/design1.jpg";
+import BackgroundImage from "../../../assets/images/wrinkle2.jpg";
 import ModalComponent from "../../../components/modal";
 import ModalDetails from "./modal";
 

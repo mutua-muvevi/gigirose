@@ -53,7 +53,7 @@ export const postContact = (values) => {
 		try {
 
 			const res = await axios.post(
-				`http://localhost:7500/api/contact/post`,
+				`https://gigirosebeauty.onrender.com/api/contact/post`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/register`,
 				values,
 				{
@@ -77,7 +77,7 @@ export const fetchContact = () => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				`http://localhost:7500/api/contact/fetchAll`,
+				`https://gigirosebeauty.onrender.com/api/contact/fetchAll`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/login`,
 				{
 					headers: {
@@ -99,7 +99,7 @@ export const deleteContact = (id) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.delete(
-				`http://localhost:7500/api/contact/delete/${id}`,
+				`https://gigirosebeauty.onrender.com/api/contact/delete/${id}`,
 			)
 			loadDeleteContact()
 			dispatch(postDeleteContactSuccess(res.data.data))

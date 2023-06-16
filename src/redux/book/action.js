@@ -53,7 +53,7 @@ export const postBookService = (values) => {
 		try {
 			
 			const res = await axios.post(
-				`http://localhost:7500/api/book/post`,
+				`https://gigirosebeauty.onrender.com/api/book/post`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/register`,
 				values,
 				{
@@ -77,7 +77,7 @@ export const fetchBookService = () => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				`http://localhost:7500/api/book/fetchAll`,
+				`https://gigirosebeauty.onrender.com/api/book/fetchAll`,
 				// `https://red-cockatoo-cap.cyclic.app/api/user/login`,
 				{
 					headers: {
@@ -99,7 +99,7 @@ export const deleteBook = (id) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.delete(
-				`http://localhost:7500/api/book/delete/${id}`,
+				`https://gigirosebeauty.onrender.com/api/book/delete/${id}`,
 			)
 			loadDeleteBook()
 			dispatch(postDeleteBookSuccess(res.data.data))

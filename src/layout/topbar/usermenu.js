@@ -138,7 +138,7 @@ const UserMenu = ({ me }) => {
 
 				<StyledDivider/>
 
-				<Link href="/auth/login" style={linkStyles}>
+				<Link href="/login" style={linkStyles}>
 					<MenuItem onClick={logout} sx={{ m: 1 }}>
 						Logout
 					</MenuItem>

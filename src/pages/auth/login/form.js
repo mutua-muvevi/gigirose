@@ -13,6 +13,7 @@ import TextFieldWrapper from "../../../components/formui/textfield/textfield";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUser } from '../../../redux/auth/action';
+import { fetchUser } from '../../../redux/user/action';
 
 const INITIAL_FORM_STATE = {
 	email: "",
@@ -29,7 +30,7 @@ const FORM_VALIDATION = Yup.object().shape({
 const StyledLoginForm = styled(Stack)(({theme}) => ({
 }))
 
-const LoginForm = ({ loginUser, token, loginError }) => {
+const LoginForm = ({ loginUser, token, loginError, fetchUser }) => {
 	
 	const [ showSuccess, setShowSuccess ] = useState(false);
 	const [ showError, setShowError ] = useState(false);
@@ -43,13 +44,12 @@ const LoginForm = ({ loginUser, token, loginError }) => {
 		if(token === null){
 			setShowError(true)
 		}
-
 		
-		if( token && token.success === true){
+		if( token){
 			setShowSuccess(true)
 	
 			setTimeout(() => {
-				navigate("/admin/bookings")
+				navigate("/admin/")
 			}, 1500);
 		}
 		
@@ -158,7 +158,8 @@ const mapStateToProps = ({auth}) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-	loginUser : (values) => dispatch(loginUser(values))
+	loginUser : (values) => dispatch(loginUser(values)),
+	fetchUser: (token) => dispatch(fetchUser(token))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

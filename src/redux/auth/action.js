@@ -71,8 +71,8 @@ export const registerUser = (values) => {
 		try {
 			console.log(values)
 			const res = await axios.post(
+				// `https://gigirosebeauty.onrender.com/api/user/register`,
 				`http://localhost:7500/api/user/register`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/register`,
 				values,
 				{
 					headers: {
@@ -93,10 +93,10 @@ export const registerUser = (values) => {
 
 export const loginUser = (values) => {
 	return async (dispatch) => {
-		try {console.log("From action", values)
+		try {console.log("Login in...", values)
 			const res = await axios.post(
+				// `https://gigirosebeauty.onrender.com/api/user/login`,
 				`http://localhost:7500/api/user/login`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/login`,
 				values,
 				{
 					headers: {
@@ -118,8 +118,8 @@ export const forgotPassword = (values) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				`http://localhost:7500/api/user/forgotpassword`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/forgotpassword`,
+				`https://gigirosebeauty.onrender.com/api/user/forgotpassword`,
+				// `http://localhost:7500/api/user/forgotpassword`,
 				values,
 				{
 					headers: {
@@ -139,8 +139,8 @@ export const resetPassword = (values, params) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.post(
-				`http://localhost:7500/api/user/resetpasword/${params}`,
-				// `https://red-cockatoo-cap.cyclic.app/api/user/resetpasword/${params}`,
+				`https://gigirosebeauty.onrender.com/api/user/resetpasword/${params}`,
+				// `http://localhost:7500/api/user/resetpasword/${params}`,
 				values,
 				{
 					headers: {

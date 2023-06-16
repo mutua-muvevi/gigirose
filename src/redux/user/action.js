@@ -32,10 +32,10 @@ export const editAdminFail = (errMessage) => ({
 
 export const fetchUser = (token) => {
 	return async (dispatch) => {
-		try {
+		try {console.log("The token we get is", token)
 			const res = await axios.get(
-				// `http://localhost:8500/api/user/me`,
 				`http://localhost:7500/api/user/me`,
+				// `https://gigirosebeauty.onrender.com/api/user/me`,
 				{
 					headers: {
 						Authorization:`${token}`,
@@ -55,8 +55,8 @@ export const editUser = ({id, token, values}) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.put(
-				// `http://localhost:8500/api/user/edit/${id}`,
-				`http://localhost:7500//api/user/users`,
+				// `http://localhost:7500/api/user/edit/${id}`,
+				`https://gigirosebeauty.onrender.com//api/user/users`,
 				values,
 				{
 					headers: {

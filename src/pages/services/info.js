@@ -1,10 +1,10 @@
 import Image1 from "../../assets/images/Dermal Filler.jpg";
-import Image2 from "../../assets/images/design1.jpg";
+import Image2 from "../../assets/images/FatDissolve2.jpg";
 import Image3 from "../../assets/images/thread.jpg";
 import Image4 from "../../assets/images/vitamin.jpg";
 import Image5 from "../../assets/images/antiwrinkle.jpg";
 import Image6 from "../../assets/images/design5.jpg";
-import Image7 from "../../assets/images/testimonial.jpg";
+import Image7 from "../../assets/images/wrinkle3.jpeg";
 import Image8 from "../../assets/images/stretchmarks.jpg"
 
 export const services = [
