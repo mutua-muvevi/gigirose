@@ -10,7 +10,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 import SwipeableSideDrawer from './drawer';
 
-import logo from "../../assets/images/logo.webp"
+import logo from "../../assets/images/logo.png";
 import ModalComponent from '../../components/modal';
 import BookingForm from "../../pages/home/sections/form"
 import { connect } from 'react-redux';
@@ -25,9 +25,13 @@ const StyledContainer = styled(Container)({
 	paddingTop: "20px"
 })
 
-const StyledLogoSection = styled(Box)({
+const StyledLogoSection = styled(Stack)({
 	fontFamily: "'Merienda', cursive",
-})
+});
+
+const styledLogo = {
+	maxHeight: "75px"
+}
 
 const StyledMenuStack = styled(Stack)({
 	width: "100%",
@@ -79,8 +83,8 @@ const Navbar = ({user}) => {
 							<StyledContainer maxWidth="xl">
 
 								<StyledMenuStack direction="row" justifyContent="space-between" alignItems="center" spacing={5}>
-									<StyledLogoSection>
-										{/* <img src={logo} alt="Skydive logo" style={styledLogo}/> */}
+									<StyledLogoSection direction="row" spacing={3} justifyContent="left" alignItems="center">
+										<img src={logo} alt="Skydive logo" style={styledLogo}/>
 										<Typography variant="h5"  color="secondary" style={{fontFamily: "'Merienda', cursive",}}>
 											<span style={{color: "#fff"}}> GIGI</span>Rose
 										</Typography>

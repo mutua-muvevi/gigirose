@@ -6,13 +6,14 @@ import {
 	List,
 	ListItem,
 	ListItemButton,
+	Stack,
 	Typography,
 } from "@mui/material";
 import { styled } from "@mui/system";
 
 import { drawerMenuItems } from "./info";
 
-import logo from "../../assets/images/logo.webp";
+import logo from "../../assets/images/logo.png";
 import { useTheme } from "@emotion/react";
 import ModalComponent from "../../components/modal";
 import { useState } from "react";
@@ -23,21 +24,18 @@ const StyledLogoListItem = styled(List)(({ theme }) => ({}));
 const LogoParent = styled(ListItem)(({ theme }) => ({
 	height: "100px",
 	width: "60vw",
+	marginBottom: "50px",
+	marginTop: "10px",
 }));
 
 const styledNavItems = {
 	fontFamily: "'Merienda', cursive",
 };
 
-const LogoItem = styled("img")(({ theme }) => ({
-	// width: "60vw",
-	display: "flex",
-	flexDirection: "column",
-	alignItems: "start",
-	height: "100%",
-	marginBottom: "20px",
-	margin: "20px auto",
-}));
+const styledLogoItem ={
+	maxHeight: "20vh",
+	minWidth: "50%",
+};
 
 const navlinkStyle = {
 	textDecoration: "none",
@@ -62,14 +60,16 @@ const SwipeableDrawerList = ({ mobileNav, setMobileNav }) => {
 					aria-label="Gigi rose mobile navigation"
 				>
 					<LogoParent>
-						{/* <LogoItem src={logo} alt="Skydive Rhino Kenya Logo"/> */}
-						<Typography
-							variant="h5"
-							color="secondary"
-							style={{ fontFamily: "'Merienda', cursive" }}
-						>
-							<span style={{ color: "#fff" }}> GIGI</span>Rose
-						</Typography>
+						<Stack direction="row" spacing={3} justifyContent="center">
+							<img src={logo} alt="Gigi Rose Beauty Logo" style={styledLogoItem}/>
+							<Typography
+								variant="h5"
+								color="secondary"
+								style={{ fontFamily: "'Merienda', cursive" }}
+							>
+								<span style={{ color: "#fff" }}> GIGI</span>Rose
+							</Typography>
+						</Stack>
 					</LogoParent>
 
 					<Divider color="grey" />
